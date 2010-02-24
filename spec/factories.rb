@@ -9,3 +9,8 @@ end
 Factory.define(:word) do |word|
   word.text "gubbins"
 end
+
+
+Factory.define(:category) do |category|
+  category.name "Excellent"
+end
