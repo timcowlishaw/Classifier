@@ -25,5 +25,32 @@ describe Message do
      
   end
   
+  describe "Existence" do
+    
+    before :each do
+      @message = Factory.build(:message)
+    end
+    
+    it "returns true from exists? when a similar record already exists" do
+      @message.save
+      
+      message_2 = Factory.build(:message, {
+        :author => @message.author,
+        :text => @message.text,
+        :location => @message.location,
+        :posted_at => @message.posted_at,
+        :feed_id => @message.feed_id,
+        :feed_type => @message.feed_type
+      })
+      
+      message_2.exists?.should be_true
+    end
+    
+    it "returns false from exists? when a similar record does not exist" do
+      @message.exists?.should be_false
+    end
+    
+  end
+  
 
 end

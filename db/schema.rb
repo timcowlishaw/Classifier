@@ -9,10 +9,37 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100224120619) do
+ActiveRecord::Schema.define(:version => 20100224174535) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "delayed_jobs", :force => true do |t|
+    t.integer  "priority",   :default => 0
+    t.integer  "attempts",   :default => 0
+    t.text     "handler"
+    t.text     "last_error"
+    t.datetime "run_at"
+    t.datetime "locked_at"
+    t.datetime "failed_at"
+    t.string   "locked_by"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "feeds", :force => true do |t|
+    t.string   "type"
+    t.string   "name"
+    t.string   "username"
+    t.string   "password"
+    t.string   "url"
+    t.string   "text_selector"
+    t.string   "author_selector"
+    t.string   "location_selector"
+    t.string   "posted_at_selector"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -24,6 +51,8 @@ ActiveRecord::Schema.define(:version => 20100224120619) do
     t.datetime "posted_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "feed_id"
+    t.string   "feed_type"
   end
 
   create_table "word_classifications", :force => true do |t|

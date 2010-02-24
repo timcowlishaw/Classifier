@@ -1,0 +1,8 @@
+-
+  name: Twitter Public
+  class: Feed::JsonFeed
+  url: http://api.twitter.com/1/statuses/public_timeline.json
+  text_selector: $.text
+  author_selector: $.user.screen_name
+  location_selector: $.user.location
+  posted_at_selector: $.created_at
