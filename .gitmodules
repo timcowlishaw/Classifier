@@ -1,3 +1,0 @@
-[submodule "lib/vector_space"]
-	path = lib/vector_space
-	url = git@github.com:timcowlishaw/vector_space.git
