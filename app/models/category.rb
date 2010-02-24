@@ -1,4 +1,4 @@
 class Category < ActiveRecord::Base
-  has_many :term_classifications
-  has_many :terms, :through => :term_classifications
+  has_many :word_classifications
+  has_many :words, :through => :word_classifications
 end

@@ -26,21 +26,21 @@ ActiveRecord::Schema.define(:version => 20100224120619) do
     t.datetime "updated_at"
   end
 
-  create_table "term_classifications", :force => true do |t|
-    t.integer  "term_id"
+  create_table "word_classifications", :force => true do |t|
+    t.integer  "word_id"
     t.integer  "category_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "term_uses", :force => true do |t|
-    t.integer  "term_id"
+  create_table "word_uses", :force => true do |t|
+    t.integer  "word_id"
     t.integer  "message_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "terms", :force => true do |t|
+  create_table "words", :force => true do |t|
     t.string   "text"
     t.datetime "created_at"
     t.datetime "updated_at"

@@ -1,6 +1,6 @@
 class InitialSchema < ActiveRecord::Migration
   def self.up
-    create_table :terms, :force => true do |t|
+    create_table :words, :force => true do |t|
       t.string :text
       t.timestamps
     end
@@ -18,14 +18,14 @@ class InitialSchema < ActiveRecord::Migration
       t.timestamps
     end
     
-    create_table :term_classifications, :force => true do |t|
-      t.integer :term_id
+    create_table :word_classifications, :force => true do |t|
+      t.integer :word_id
       t.integer :category_id
       t.timestamps
     end
     
-    create_table :term_uses, :force => true do |t|
-      t.integer :term_id
+    create_table :word_uses, :force => true do |t|
+      t.integer :word_id
       t.integer :message_id
       t.timestamps
     end
@@ -33,10 +33,10 @@ class InitialSchema < ActiveRecord::Migration
   end
 
   def self.down
-    drop_table :term_uses
-    drop_table :term_classifications
+    drop_table :word_uses
+    drop_table :word_classifications
     drop_table :categories
     drop_table :messages
-    drop_table :terms
+    drop_table :words
   end
 end

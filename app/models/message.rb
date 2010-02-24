@@ -1,4 +1,4 @@
 class Message < ActiveRecord::Base
-  has_many :term_uses
-  has_many :terms, :through => :term_uses
+  has_many :word_uses
+  has_many :words, :through => :word_uses
 end
