@@ -22,7 +22,9 @@ Rails::Initializer.run do |config|
   config.gem "andand"
   config.gem "stemmer"
   config.gem "twitter"
-  require "lib/vector_space/lib/vector_space.rb"
+  
+  require "lib/vector_space/lib/vector_space"
+  require "lib/string_extensions"
 
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named
