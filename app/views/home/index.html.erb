@@ -1,6 +1,6 @@
 <% @categories.each do |category| %>
 	<div class="<%= category.name.downcase %> category">
-		<h2><%= category.name %></h2>
+		<h2><%= category.name %>: <%= category.messages.count %></h2>
 		<ul class="messages">
 			<% category.messages.each do |message| %>
 				<li><%= message.text %></li>
