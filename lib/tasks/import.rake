@@ -7,7 +7,7 @@ namespace :import do
     Category.import_all_from_yaml
   end
   
-  task :message => :environment do
+  task :messages => :environment do
     Feed.update_all!
   end
 end

@@ -9,8 +9,8 @@ class Message < ActiveRecord::Base
   include HasWords
   
   class << self
-    def random
-      first(:order => "RAND()")
+    def random_uncategorised
+      first(:order => "RAND()", :conditions => "category_id is null")
     end
     
     def update_all_categories!
@@ -42,8 +42,7 @@ class Message < ActiveRecord::Base
   end  
   
   def do_categorisation_if_not_training
-    setting = Setting.find_by_key("training?")
-    if !setting || setting == "false"
+    if Setting.training?
       self.categorise!
     end
     return self
