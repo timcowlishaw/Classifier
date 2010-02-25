@@ -20,12 +20,12 @@ class Feed < ActiveRecord::Base
     end
   end
   
-  def messages
+  def fetched_messages
     response.map { |datum| parse_individual(datum) }
   end
   
   def new_messages
-     messages.reject( message.exists?(self) )
+    fetched_messages.reject { |message| message.exists? }
   end
    
    def save_new_messages!
