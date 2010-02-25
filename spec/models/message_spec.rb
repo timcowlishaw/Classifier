@@ -63,4 +63,22 @@ describe Message do
     
   end
 
+  describe "category" do
+    it "returns the category whose word_counts vector has the highest dot product with our own" do
+      message = Factory.create(:message)
+      
+      category_1 = Factory.create(:category)
+      category_2 = Factory.create(:category)
+      
+      message.stubs(:word_counts).returns([1,1,1])
+      category_1.stubs(:word_counts).returns([0,0,0])
+      category_2.stubs(:word_counts).returns([1,1,1])
+      
+      Category.stubs(:all).returns([category_1, category_2])
+      
+      message.category.should == category_2
+    end
+    
+  end
+
 end
