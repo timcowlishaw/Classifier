@@ -1,0 +1,21 @@
+<% form_tag(categorise_message_path(@message.id), :method => :put, :id => "classify_form") do %>
+
+<div class="message_text">
+	&ldquo;<%= @message.text %>&rdquo;
+</div>
+
+<fieldset class="radio_buttons">
+	
+	<% @categories.each do |c| %>
+		<div class="choice">
+			<%= label_tag "category_id", c.name %>
+			<%= radio_button_tag "category_id", c.id, false, :class => 'category' %>
+		</div>
+	<% end %>
+
+</fieldset>
+
+<fieldset class="submit">
+	<%= submit_tag "Save!" %>
+</fieldset>
+<% end %>
