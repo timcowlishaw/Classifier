@@ -12,9 +12,13 @@ class Feed
       })
     end
     
+    def collection
+      JSONPath.lookup(response, '$.results').first
+    end
+    
     def get_response
        uri = URI.parse(self.url)
-       req = Net::HTTP::Get.new(uri.path)
+       req = Net::HTTP::Get.new(uri.path +  '?' + uri.query)
        res = Net::HTTP.start(uri.host, uri.port) {|http| http.request(req) }
        json = JSON.parse(res.body)
        return json 

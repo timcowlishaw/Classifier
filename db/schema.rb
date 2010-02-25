@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100224174535) do
+ActiveRecord::Schema.define(:version => 20100225180011) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -53,6 +53,16 @@ ActiveRecord::Schema.define(:version => 20100224174535) do
     t.datetime "updated_at"
     t.integer  "feed_id"
     t.string   "feed_type"
+    t.integer  "category_id"
+  end
+
+  add_index "messages", ["category_id"], :name => "index_messages_on_category_id"
+
+  create_table "settings", :force => true do |t|
+    t.string   "key"
+    t.string   "value"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "word_classifications", :force => true do |t|
@@ -62,12 +72,18 @@ ActiveRecord::Schema.define(:version => 20100224174535) do
     t.datetime "updated_at"
   end
 
+  add_index "word_classifications", ["category_id"], :name => "index_word_classifications_on_category_id"
+  add_index "word_classifications", ["word_id"], :name => "index_word_classifications_on_word_id"
+
   create_table "word_uses", :force => true do |t|
     t.integer  "word_id"
     t.integer  "message_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "word_uses", ["message_id"], :name => "index_word_uses_on_message_id"
+  add_index "word_uses", ["word_id"], :name => "index_word_uses_on_word_id"
 
   create_table "words", :force => true do |t|
     t.string   "text"

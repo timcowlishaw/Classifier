@@ -21,7 +21,7 @@ class Feed < ActiveRecord::Base
   end
   
   def fetched_messages
-    response.map { |datum| parse_individual(datum) }
+    collection.map { |datum| parse_individual(datum) }
   end
   
   def new_messages
@@ -37,6 +37,11 @@ class Feed < ActiveRecord::Base
   def response 
     @response ||= get_response
   end
+  
+  def collection
+    raise NotImplementedError
+  end
+  
   
   def parse_individual(datum)
     raise NotImplementedError

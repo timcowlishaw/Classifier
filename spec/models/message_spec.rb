@@ -63,7 +63,7 @@ describe Message do
     
   end
 
-  describe "category" do
+  describe "derived category" do
     it "returns the category whose word_counts vector has the highest dot product with our own" do
       message = Factory.create(:message)
       
@@ -76,7 +76,7 @@ describe Message do
       
       Category.stubs(:all).returns([category_1, category_2])
       
-      message.category.should == category_2
+      message.derived_category.should == category_2
     end
     
   end
