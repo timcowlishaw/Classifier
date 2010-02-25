@@ -9,8 +9,8 @@ class Message < ActiveRecord::Base
   include HasWords
   
   class << self
-    def random_uncategorised
-      first(:order => "RAND()", :conditions => "category_id is null")
+    def next_unclassified
+      first(:conditions => "category_id is null")
     end
     
     def update_all_categories!

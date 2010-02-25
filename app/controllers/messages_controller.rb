@@ -1,7 +1,7 @@
 class MessagesController < ApplicationController
 
-  def random
-    @message = Message.random_unclassified
+  def classify
+    @message = Message.next_unclassified
     @categories = Category.all
     
     respond_to do |format|
