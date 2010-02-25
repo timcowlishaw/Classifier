@@ -1,4 +1,4 @@
 treetop
 andand
 stemmer
-delayedjob
+delayed_job
