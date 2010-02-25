@@ -2,3 +2,6 @@ treetop
 andand
 stemmer
 delayed_job
+rspec
+rspec-rails
+cucumber
