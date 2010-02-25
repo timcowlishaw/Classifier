@@ -28,9 +28,9 @@ Rails::Initializer.run do |config|
   
   require 'net/http'
   #require "lib/vector_space/lib/vector_space"
-  require 'lib/jsonpath/lib/jsonpath'
-  require "lib/string_extensions"
-  require "lib/enumerable_extensions"
+  require "#{RAILS_ROOT}/lib/jsonpath/lib/jsonpath"
+  require "#{RAILS_ROOT}/lib/string_extensions"
+  require "#{RAILS_ROOT}/lib/enumerable_extensions"
 
   #what a HACK! Mysql::Result implements #each, but doesn't include it. since some of us like our maps and injects and so on, this seems to make sense.
   require 'mysql' #unless it hasn't been already
