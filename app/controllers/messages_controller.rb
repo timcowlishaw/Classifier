@@ -15,7 +15,7 @@ class MessagesController < ApplicationController
     @category = Category.find(params[:category_id])
     @message.categorise!(@category)
     respond_to do |format|
-      format.html {redirect_to random_messages_path}
+      format.html {redirect_to classify_messages_path}
       format.js { render :js => {:text => Message.random.text} }
     end
   end

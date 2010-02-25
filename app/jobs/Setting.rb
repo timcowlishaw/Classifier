@@ -2,18 +2,17 @@ class Setting < ActiveRecord::Base
   validates_uniqueness_of :key
   class << self
     def training?
-      setting = Setting.find_by_key("training?")
-      !setting || setting == "false"
+      Setting.find_by_key("training?").value == "true"
     end
     
-    def set_training
-       setting = Setting.find_by_key("training?")
+    def start_training!
+       setting = Setting.find_or_create_by_key("training?")
        setting.value = "true"
        setting.save
     end
     
-    def unset_training
-      setting = Setting.find_by_key("training?")
+    def stop_training!
+      setting = Setting.find_or_create_by_key("training?")
       setting.value = "false"
       setting.save
     end
