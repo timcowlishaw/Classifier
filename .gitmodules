@@ -1,6 +1,0 @@
-[submodule "lib/vector_space"]
-	path = lib/vector_space
-	url = git@github.com:timcowlishaw/vector_space.git
-[submodule "lib/jsonpath"]
-	path = lib/jsonpath
-	url = git@github.com:timcowlishaw/jsonpath.git
