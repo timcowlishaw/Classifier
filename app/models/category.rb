@@ -9,7 +9,7 @@ class Category < ActiveRecord::Base
   class << self
     def import_all_from_yaml
       YAML.load_file("config/categories.yml").each do |hash|
-        klass.create(hash) unless first(:conditions => {:name => hash["name"]})
+        self.create(hash) unless first(:conditions => {:name => hash["name"]})
       end
     end
   end
