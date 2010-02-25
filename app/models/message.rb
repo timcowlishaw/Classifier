@@ -3,7 +3,7 @@ class Message < ActiveRecord::Base
   has_many :words, :through => :word_uses
   after_create :create_words_for_message
   belongs_to :feed, :polymorphic => true
-  
+  include HasWords
   def categorise!(category)
     words.each { |word| word.categorise!(category)}
     words.reload

@@ -1,4 +1,5 @@
 require File.dirname(__FILE__) + '/../spec_helper'
+require File.dirname(__FILE__) + '/has_words_spec'
 
 describe Message do
   
@@ -52,5 +53,14 @@ describe Message do
     
   end
   
+  describe "HasWords mixin" do
+    before :all do
+      @klass = Message
+      @hash = {:text => "test"}
+    end
+    
+    it_should_behave_like "HasWords"
+    
+  end
 
 end
