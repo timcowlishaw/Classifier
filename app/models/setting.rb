@@ -2,7 +2,7 @@ class Setting < ActiveRecord::Base
   validates_uniqueness_of :key
   class << self
     def training?
-      Setting.find_by_key("training?").value == "true"
+      Setting.find_by_key("training?").andand.value == "true"
     end
     
     def start_training!
