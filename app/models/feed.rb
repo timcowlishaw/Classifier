@@ -14,18 +14,14 @@ class Feed < ActiveRecord::Base
         klass.create(hash) unless first(:conditions => {:url => hash[:url]})
       end
     end
+    
+    def update_all!
+      all.each {|feed| feed.save_new_messages!}
+    end
   end
   
   def messages
-    response.map do |data|
-      Message.new({
-        :text => JSONPath.lookup(data, text_selector),
-        :location => JSONPath.lookup(data, location_selector),
-        :posted_at => JSONPath.lookup(data, posted_at_selector),
-        :author => JSonPath.lookup(data, author_selector),
-        :feed => self
-      })
-    end
+    response.map { |datum| parse_individual(datum) }
   end
   
   def new_messages
@@ -41,6 +37,10 @@ class Feed < ActiveRecord::Base
   def response 
     @response ||= get_response
   end
+  
+  def parse_individual(datum)
+    raise NotImplementedError
+  end  
   
   def get_response
     raise NotImplementedError

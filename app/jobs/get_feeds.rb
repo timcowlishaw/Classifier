@@ -1,6 +1,6 @@
 class GetFeeds
   def perform
-    Feed.all.each {|feed| feed.save_new_messages!}
+    Feed.update_all!
     Delayed::Job.enqueue(self, nil, Time.now + Feed::FETCH_DELAY)
   end
 end

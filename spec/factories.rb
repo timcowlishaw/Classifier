@@ -14,3 +14,12 @@ end
 Factory.define(:category) do |category|
   category.name "Excellent"
 end
+
+Factory.define(:json_feed, :class => Feed::JsonFeed) do |feed|
+  feed.name "Test JSON feed"
+  feed.url "http://www.example.com/json_feed"
+  feed.author_selector "$.author"
+  feed.location_selector "$.location"
+  feed.posted_at_selector "$.posted_at"
+  feed.text_selector "$.text"
+end

@@ -24,11 +24,11 @@ Rails::Initializer.run do |config|
   config.gem "stemmer"
   #config.gem "twitter"
   config.gem "json"
-  config.gem "bruce-jsonpath", :lib => "jsonpath"
   config.gem "delayed_job"
   
   require 'net/http'
   #require "lib/vector_space/lib/vector_space"
+  require 'lib/jsonpath/lib/jsonpath'
   require "lib/string_extensions"
 
   # Only load the plugins named here, in the order given (default is alphabetical).

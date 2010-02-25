@@ -19,7 +19,7 @@ describe Message do
     
     it "classify all its terms when classified" do
       @message.words.map(&:word_classifications).flatten.should be_empty
-      @message.words.reload.each {|word| word.should_receive(:categorise!).with(@category)}
+      @message.words.reload.each {|word| word.expects(:categorise!).with(@category)}
       @message.categorise!(@category)
     end
      
