@@ -42,7 +42,7 @@ class Message < ActiveRecord::Base
   end  
   
   def do_categorisation_if_not_training
-    if Setting.training?
+    if !Setting.training?
       self.categorise!
     end
     return self
