@@ -17,8 +17,12 @@ class Feed
     end
     
     def get_response
+      
        uri = URI.parse(self.url)
-       req = Net::HTTP::Get.new(uri.path +  '?' + uri.query)
+       
+       full_request = [uri.path, uri.query].compact.join("?")
+
+       req = Net::HTTP::Get.new(full_request)
        res = Net::HTTP.start(uri.host, uri.port) {|http| http.request(req) }
        json = JSON.parse(res.body)
        return json 
