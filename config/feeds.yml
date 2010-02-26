@@ -1,7 +1,7 @@
 -
   name: Twitter UK
   class: Feed::JsonFeed
-  url: 'http://search.twitter.com/search?format=json&lang=en&geocode=54.3165%2C-1.9775%2C500km&rpp=50'
+  url: 'http://search.twitter.com/search?format=json&lang=en&geocode=54.3165%2C-1.9775%2C500km&rpp=40'
   text_selector: $.text
   author_selector: $.from_user
   location_selector: $.location
