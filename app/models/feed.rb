@@ -1,6 +1,6 @@
 class Feed < ActiveRecord::Base
   
-  FETCH_DELAY = 5.minutes
+  FETCH_DELAY = 1.minute
   
   has_many :messages, :as => :feed
   
