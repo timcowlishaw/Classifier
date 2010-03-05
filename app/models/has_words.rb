@@ -11,7 +11,7 @@ module HasWords
       FROM words 
       LEFT JOIN #{words_join_table_name} ON #{words_join_table_name}.word_id = words.id and #{words_join_table_name}.#{self.class.table_name.singularize}_id = #{self.id}
       GROUP BY words.id
-      ORDER BY words.id;").map {|h| h.values.last.to_i }
+      ORDER BY words.id;").map {|h| h.values.first.to_i }
       # [{0=>"1", "count(word_uses.id)"=>"1"}, {0=>"2", "count(word_uses.id)"=>"2"}, {0=>"3", "count(word_uses.id)"=>"3"}]  
       
       
