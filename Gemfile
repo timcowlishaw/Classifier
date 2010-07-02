@@ -11,8 +11,11 @@ gem 'pg'
 # gem 'unicorn'
 
 # Deploy with Capistrano
-# gem 'capistrano'
+gem 'capistrano'
 
+gem 'ruby-stemmer', :require => "lingua/stemmer"
+gem 'libsvm-ruby-swig'
+gem 'jsonpath'
 # To use debugger
 # gem 'ruby-debug'
 
@@ -27,3 +30,20 @@ gem 'pg'
 # group :test do
 #   gem 'webrat'
 # end
+#
+#
+
+group :test do
+  gem "capybara"
+  gem "database_cleaner"
+  gem "cucumber-rails"
+  gem "cucumber"
+  gem "rspec-rails", ">= 2.0.0.beta.13"
+  gem "spork"
+  gem "factory_girl"
+  gem "pickle"
+  gem "launchy"
+  gem "fakeweb"
+  gem "mocha"
+  gem "set_specs"
+end

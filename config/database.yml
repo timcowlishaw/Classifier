@@ -11,9 +11,9 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: Classifier_development
+  database: classifier_development
   pool: 5
-  username: Classifier
+  username: root
   password:
 
   # Connect on a TCP socket. Omitted by default since the client uses a
@@ -34,18 +34,21 @@ development:
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
-test:
+test: &test
   adapter: postgresql
   encoding: unicode
-  database: Classifier_test
+  database: classifier_test
   pool: 5
-  username: Classifier
+  username: root
   password:
 
 production:
   adapter: postgresql
   encoding: unicode
-  database: Classifier_production
+  database: classifier_production
   pool: 5
-  username: Classifier
+  username: root
   password:
+
+cucumber:
+  <<: *test
