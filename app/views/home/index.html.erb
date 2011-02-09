@@ -2,7 +2,7 @@
 <%= button_to "Training mode", classify_messages_path, :method => :get, :id => "training_mode" %>
 <% form_tag(bulk_categorize_messages_path(:all), :method => :put) do %>
 <%= submit_tag "Update", :id => "update_messages" %>
-<% @categories.reject.each do |category| %>
+<% @categories.each do |category| %>
 	<div class="<%= category.name.downcase %> category">
 		<h2><%= category.name %>: <%= category.messages.count %></h2>
 		<ul class="messages">
