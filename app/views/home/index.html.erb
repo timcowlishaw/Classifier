@@ -1,5 +1,5 @@
 <%= button_to "Grab more tweets", feed_path(:current), :method => :put, :id => "grab_more_tweets" %>
-<%= button_to "Training mode", classify_messages_path, :method => :get, :id => "training_mode" %>
+<%= button_to "Go into training mode", classify_messages_path, :method => :get, :id => "training_mode" %>
 <% form_tag(bulk_categorize_messages_path(:all), :method => :put) do %>
 <%= submit_tag "Update", :id => "update_messages" %>
 <% @categories.each do |category| %>
