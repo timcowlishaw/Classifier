@@ -62,6 +62,7 @@ div.category ul.messages {
 div.category ul.messages li {
 	margin-bottom: 1em;
 	padding-bottom: 1em;
+  overflow: hidden;	
 }
 
 div.category ul.messages li ul {
@@ -73,7 +74,6 @@ div.category ul.messages li ul {
 div.category ul.messages li ul li {
   display: none;   
   color: #bbbbbb;   
-  overflow: hidden;
 }
 
 div.category ul.messages li.hover ul li {
