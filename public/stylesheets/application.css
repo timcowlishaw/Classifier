@@ -7,6 +7,16 @@ body {
 
 #main {padding: 1em;}
 
+a {
+  color: #bbbbbb;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+
 h1 {
 	color: #ffffff;
 	font-weight: bold;
@@ -45,10 +55,50 @@ div.category.dark h2, div.category.dark li {
 	color: #cac98f;
 }
 
-div.category ul.messages{
+div.category ul.messages {
  margin: 1em 1em 1em 0;
 }
 
 div.category ul.messages li {
 	margin-bottom: 1em;
+	padding-bottom: 1em;
+}
+
+div.category ul.messages li ul {
+  font-size: 12px;
+  height: 1em;
+  float: right;
+}
+
+div.category ul.messages li ul li {
+  display: none;   
+  color: #bbbbbb;   
+}
+
+div.category ul.messages li.hover ul li {
+  display: inline;
+}
+
+div.category ul.messages li ul.fixed li {
+  display: inline;
+}
+
+#update_messages {
+  position: fixed;
+  top: 0;
+  right: 0;
+  display: none;
+}
+
+
+#grab_more_tweets {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#training_mode {
+  position: absolute;
+  top: 2em;
+  left: 0;
 }

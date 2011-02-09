@@ -24,7 +24,7 @@ Rails::Initializer.run do |config|
   config.gem "stemmer"
   #config.gem "twitter"
   config.gem "json"
-  config.gem "delayed_job"
+  #config.gem "delayed_job"
   
   require 'net/http'
   #require "lib/vector_space/lib/vector_space"

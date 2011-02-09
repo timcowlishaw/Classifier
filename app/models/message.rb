@@ -20,10 +20,14 @@ class Message < ActiveRecord::Base
     end
   end
   
-  def categorise!(category=nil)
-    self.category = category || derived_category
+  def categorise!(new_category=nil)
+    if category # if changing categories
+      words.each {|word| word.word_classifications.destroy }
+    end
+    
+    self.category = new_category || derived_category
     self.save!
-    words.each { |word| word.categorise!(category)}
+    words.each { |word| word.categorise!(new_category)}
     words.reload
   end
   

@@ -11,4 +11,16 @@ $(document).ready(function() {
 			});
 		});
 	}
+	
+	$("div.category ul.messages li").hover(function () {
+      $(this).addClass("hover");
+    },
+    function () {
+      $(this).removeClass("hover");
+  });
+  
+  $("div.category ul.messages li input").click(function() {
+    $(this).parents("ul").addClass("fixed");
+    $("#update_messages").show();
+  });
 });

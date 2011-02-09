@@ -1,10 +1,25 @@
-<% @categories.each do |category| %>
+<%= button_to "Grab more tweets", feed_path(:current), :method => :put, :id => "grab_more_tweets" %>
+<%= button_to "Training mode", classify_messages_path, :method => :get, :id => "training_mode" %>
+<% form_tag(bulk_categorize_messages_path(:all), :method => :put) do %>
+<%= submit_tag "Update", :id => "update_messages" %>
+<% @categories.reject.each do |category| %>
 	<div class="<%= category.name.downcase %> category">
 		<h2><%= category.name %>: <%= category.messages.count %></h2>
 		<ul class="messages">
 			<% category.messages.each do |message| %>
-				<li><%= message.text %></li>
+				<li>
+				  <%= auto_link(message.text) %>
+				  <ul>
+				  <% @category_choices.each do |c| %>
+            <li>
+    					<%= label_tag "category_id", c.name %>
+    					<%= radio_button_tag "message[#{message.id}]category_id", c.id, false, :class => 'category' %>
+            </li>
+    			<% end %>
+    			</ul>
+				</li>
 			<% end %>
 		</ul>
 	</div>
+<% end %>
 <% end %>
