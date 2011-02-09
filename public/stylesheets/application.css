@@ -73,6 +73,7 @@ div.category ul.messages li ul {
 div.category ul.messages li ul li {
   display: none;   
   color: #bbbbbb;   
+  overflow: hidden;
 }
 
 div.category ul.messages li.hover ul li {
